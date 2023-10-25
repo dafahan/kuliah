@@ -1,0 +1,89 @@
+public class Mahasiswa {
+    private String nama;
+    private String npm;
+    private Nilai nilai;
+    public Mahasiswa(String nama, String npm, Nilai nilai) {
+        this.nama = nama;
+        this.npm = npm;
+        this.nilai = nilai;
+    }
+
+     public Mahasiswa() {
+        this.nama = "";
+        this.npm = "";
+        this.nilai = new Nilai(); 
+    }
+   public void print() {
+        
+        System.out.println("Nama : " + (nama != "" ? nama : "null"));
+        System.out.println("NPM : " + (npm != "" ? npm : "null"));
+        System.out.println("Mata Kuliah : " + (nilai.getMataKuliah()!= "" ? nilai.getMataKuliah():"null"));
+        System.out.println("Nilai Tugas : " + nilai.getNilaiTugas());
+        System.out.println("Nilai UTS : " + nilai.getNilaiUts());
+        System.out.println("Nilai UAS : " + nilai.getNilaiUas());
+        System.out.println("Nilai Akhir : " + nilai.hitungNA());
+    }
+}
+public class Nilai {
+    private String mataKuliah;
+    private double nilaiTugas;
+    private double nilaiUts;
+    private double nilaiUas;
+
+    public Nilai() {
+        this.mataKuliah = "";
+        this.nilaiTugas = 0;
+        this.nilaiUts = 0;
+        this.nilaiUas = 0;
+    }
+
+    public void setMataKuliah(String mataKuliah){
+        this.mataKuliah = mataKuliah;
+    }
+    public Nilai(String mataKuliah) {
+        this.mataKuliah = mataKuliah;
+        this.nilaiTugas = 0;
+        this.nilaiUts = 0;
+        this.nilaiUas = 0;
+    }
+
+    public Nilai(String mataKuliah, double nilaiTugas, double nilaiUts, double nilaiUas) {
+        this.mataKuliah = mataKuliah;
+        this.nilaiTugas = nilaiTugas;
+        this.nilaiUts = nilaiUts;
+        this.nilaiUas = nilaiUas;
+    }
+
+    public String getMataKuliah() {
+        return mataKuliah;
+    }
+
+    public void setNilaiTugas(double nilaiTugas) {
+        this.nilaiTugas = nilaiTugas;
+    }
+
+    public double getNilaiTugas() {
+        return nilaiTugas;
+    }
+
+    public void setNilaiUts(double nilaiUts) {
+        this.nilaiUts = nilaiUts;
+    }
+
+    public double getNilaiUts() {
+        return nilaiUts;
+    }
+
+    public void setNilaiUas(double nilaiUas) {
+        this.nilaiUas = nilaiUas;
+    }
+
+    public double getNilaiUas() {
+        return nilaiUas;
+    }
+
+    public double hitungNA() {
+        double na = (nilaiTugas * 0.3) + (nilaiUts * 0.3) + (nilaiUas * 0.4);
+        return na;
+    }
+}

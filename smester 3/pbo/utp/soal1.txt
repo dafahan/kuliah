@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		 Scanner scanner = new Scanner(System.in);
+		 double jarak = scanner.nextDouble();
+		 double waktu = scanner.nextDouble();
+		 double kecepatan = (jarak / 1000) / waktu;
+		String kategori = "";
+        if (kecepatan > 80) {
+            kategori = "Cepat";
+        } else if (kecepatan > 40 && kecepatan <= 80) {
+            kategori = "Normal";
+        } else {
+            kategori = "Lambat";
+        }
+        System.out.printf("%.2f%n%s%n", kecepatan, kategori);
+	}
+}

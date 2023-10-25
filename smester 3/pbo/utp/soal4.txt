@@ -1,0 +1,127 @@
+class Nilai {
+    private String mataKuliah;
+    private double nilaiTugas;
+    private double nilaiUts;
+    private double nilaiUas;
+
+    public Nilai() {
+    }
+
+    public Nilai(String mataKuliah) {
+        this.mataKuliah = mataKuliah;
+    }
+
+    public Nilai(String mataKuliah, double nilaiTugas, double nilaiUts, double nilaiUas) {
+        this.mataKuliah = mataKuliah;
+        this.nilaiTugas = nilaiTugas;
+        this.nilaiUts = nilaiUts;
+        this.nilaiUas = nilaiUas;
+    }
+
+    public void setMataKuliah(String mataKuliah) {
+        this.mataKuliah = mataKuliah;
+    }
+
+    public void setNilaiTugas(double nilaiTugas) {
+        this.nilaiTugas = nilaiTugas;
+    }
+
+    public void setNilaiUts(double nilaiUts) {
+        this.nilaiUts = nilaiUts;
+    }
+
+    public void setNilaiUas(double nilaiUas) {
+        this.nilaiUas = nilaiUas;
+    }
+
+    public String getMataKuliah() {
+        return mataKuliah;
+    }
+
+    public double getNilaiTugas() {
+        return nilaiTugas;
+    }
+
+    public double getNilaiUts() {
+        return nilaiUts;
+    }
+
+    public double getNilaiUas() {
+        return nilaiUas;
+    }
+    
+    public double hitungNA(){
+        double na = (this.nilaiTugas*0.3 + this.nilaiUts*0.3 + this.nilaiUas*0.4);
+        return na;
+    }
+    
+    public String mutuNilai() {
+        double na = hitungNA();
+        if (na >= 76) {
+            return "A";
+        } else if (na >= 71) {
+            return "B+";
+        } else if (na >= 66) {
+            return "B";
+        } else if (na >= 61) {
+            return "C+";
+        } else if (na >= 56) {
+            return "C";
+        } else if (na >= 50) {
+            return "D";
+        } else {
+            return "E";
+        }
+    }
+}
+
+class Mahasiswa {
+    private String nama;
+    private String npm;
+    private Nilai nilai = new Nilai();
+
+    public Mahasiswa(String nama, String npm, Nilai nilai) {
+        this.nama = nama;
+        this.npm = npm;
+        this.nilai = nilai;
+    }
+
+    public Mahasiswa() {
+    }
+
+    public void print() {
+        System.out.println("Nama : " + this.nama);
+        System.out.println("NPM : " + this.npm);
+        System.out.println("Mata Kuliah : " + nilai.getMataKuliah());
+        System.out.println("Nilai Tugas : " + nilai.getNilaiTugas());
+        System.out.println("Nilai UTS : " + nilai.getNilaiUts());
+        System.out.println("Nilai UAS : " + nilai.getNilaiUas());
+        System.out.println("Nilai Akhir : " + nilai.hitungNA());
+        System.out.println("Mutu Nilai : " + nilai.mutuNilai());
+    }
+
+    
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNpm() {
+        return npm;
+    }
+
+    public void setNpm(String npm) {
+        this.npm = npm;
+    }
+
+    public Nilai getNilai() {
+        return nilai;
+    }
+
+    public void setNilai(Nilai nilai) {
+        this.nilai = nilai;
+    }
+}
